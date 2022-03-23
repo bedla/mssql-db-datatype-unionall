@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.7.xsd">
+
+    <changeSet id="0" author="ivos">
+        <sql dbms="mssql" endDelimiter="GO">
+            CREATE SCHEMA foo
+        </sql>
+    </changeSet>
+
+    <changeSet id="1" author="ivos">
+        <createTable tableName="person" schemaName="foo">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="firstname" type="varchar(64)"/>
+            <column name="lastname" type="varchar(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="ivos">
+        <createTable tableName="country" schemaName="foo">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="3" author="ivos">
+        <addForeignKeyConstraint constraintName="fk_person_country"
+                                 baseColumnNames="country_id"
+                                 baseTableName="person"
+                                 baseTableSchemaName="foo"
+                                 referencedColumnNames="id"
+                                 referencedTableName="country"
+                                 referencedTableSchemaName="foo"/>
+    </changeSet>
+
+    <changeSet id="4" author="ivos">
+        <createTable tableName="data_types1" schemaName="foo">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="c_datetimeoffset" type="datetimeoffset"/>
+            <column name="c_datetime2" type="datetime2"/>
+            <column name="c_datetime" type="datetime"/>
+            <column name="c_smalldatetime" type="smalldatetime"/>
+            <column name="c_date" type="date"/>
+            <column name="c_time" type="time"/>
+            <column name="c_float" type="float"/>
+            <column name="c_real" type="real"/>
+            <column name="c_decimal" type="decimal"/>
+            <column name="c_money" type="money"/>
+            <column name="c_smallmoney" type="smallmoney"/>
+            <column name="c_bigint" type="bigint"/>
+            <column name="c_int" type="int"/>
+            <column name="c_smallint" type="smallint"/>
+            <column name="c_tinyint" type="tinyint"/>
+            <column name="c_bit" type="bit"/>
+            <column name="c_ntext" type="ntext"/>
+            <column name="c_text" type="text"/>
+            <column name="c_image" type="image"/>
+            <column name="c_nvarchar" type="nvarchar(255)"/>
+            <column name="c_varchar" type="varchar(255)"/>
+            <column name="c_nchar" type="nchar(1)"/>
+            <column name="c_char" type="char(1)"/>
+            <column name="c_varbinary" type="varbinary(64)"/>
+            <column name="c_binary" type="binary(64)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="5" author="ivos">
+        <createTable tableName="data_types2" schemaName="foo">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="c_datetimeoffset" type="datetimeoffset"/>
+            <column name="c_datetime2" type="datetime2"/>
+            <column name="c_datetime" type="datetime"/>
+            <column name="c_smalldatetime" type="smalldatetime"/>
+            <column name="c_date" type="date"/>
+            <column name="c_time" type="time"/>
+            <column name="c_float" type="float"/>
+            <column name="c_real" type="real"/>
+            <column name="c_decimal" type="decimal"/>
+            <column name="c_money" type="money"/>
+            <column name="c_smallmoney" type="smallmoney"/>
+            <column name="c_bigint" type="bigint"/>
+            <column name="c_int" type="int"/>
+            <column name="c_smallint" type="smallint"/>
+            <column name="c_tinyint" type="tinyint"/>
+            <column name="c_bit" type="bit"/>
+            <column name="c_ntext" type="ntext"/>
+            <column name="c_text" type="text"/>
+            <column name="c_image" type="image"/>
+            <column name="c_nvarchar" type="nvarchar(255)"/>
+            <column name="c_varchar" type="varchar(255)"/>
+            <column name="c_nchar" type="nchar(1)"/>
+            <column name="c_char" type="char(1)"/>
+            <column name="c_varbinary" type="varbinary(64)"/>
+            <column name="c_binary" type="binary(64)"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
