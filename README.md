@@ -5,9 +5,9 @@ In this repository you can find sample use-cases that shows how MSSQL converts d
 1. Run `docker compose up` command to start MSSQL instance with sample DB structure
 2. Run `MainApplication` Spring Boot application to see use-cases and their output
 
-```shell
-2022-03-23 21:44:51.432  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                : >>> Convert dates to OffsetDateTime <<<
-2022-03-23 21:44:51.432  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                :  >> promotes date-times to c_datetimeoffset at offset +00:00
+```
+ >>> Convert dates to OffsetDateTime <<<
+  >> promotes date-times to c_datetimeoffset at offset +00:00
 0.	{c_datetime2=3294-05-17 09:11:21 +02:00, c_datetime=3294-05-17 09:11:21 +02:00, c_smalldatetime=3294-05-17 09:11:21 +02:00}
 1.	{c_datetime2=null, c_datetime=null, c_smalldatetime=null}
 2.	{c_datetime2=4005-04-26 17:31:54 +02:00, c_datetime=4005-04-26 17:31:54 +02:00, c_smalldatetime=4005-04-26 17:31:54 +02:00}
@@ -31,9 +31,9 @@ In this repository you can find sample use-cases that shows how MSSQL converts d
 ```
 ---
 ```
-2022-03-23 21:44:51.459  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                : >>> Convert Date & Time to OffsetDateTime <<<
-2022-03-23 21:44:51.459  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                :  >> promotes date to hour 00:00:00 at offset +00:00
-2022-03-23 21:44:51.459  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                :  >> promotes time to year 1900-01-01 at offset +00:00
+ >>> Convert Date & Time to OffsetDateTime <<<
+  >> promotes date to hour 00:00:00 at offset +00:00
+  >> promotes time to year 1900-01-01 at offset +00:00
 0.	{d1=3294-05-17 09:11:21 +02:00, d2=3294-05-17 09:11:21 +02:00}
 1.	{d1=null, d2=null}
 2.	{d1=4005-04-26 17:31:54 +02:00, d2=4005-04-26 17:31:54 +02:00}
@@ -57,22 +57,22 @@ In this repository you can find sample use-cases that shows how MSSQL converts d
 ```
 ---
 ```
-2022-03-23 21:44:51.476  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                : >>> Convert Date & Time to each other <<<
-2022-03-23 21:44:51.578 ERROR 5660 --- [           main] c.e.d.MyCommandLineRunner                :  >> Unable to UNION ALL columns date & time with each other: Operand type clash: time is incompatible with date
+ >>> Convert Date & Time to each other <<<
+  >> Unable to UNION ALL columns date & time with each other: Operand type clash: time is incompatible with date
 ```
 ---
 ```
-2022-03-23 21:44:51.579  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                : >>> Convert Date & Time to datetime data type <<<
-2022-03-23 21:44:51.579  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                :  >> date: range 0001-01-01 through 9999-12-31
-2022-03-23 21:44:51.579  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                :  >> datetime: Date range - January 1, 1753, through December 31, 9999
-2022-03-23 21:44:51.579  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                :  >>           Time range - 00:00:00 through 23:59:59.997
-2022-03-23 21:44:51.589 ERROR 5660 --- [           main] c.e.d.MyCommandLineRunner                :  >> Unable to UNION ALL columns date & time to datetime data type: The conversion of a date data type to a datetime data type resulted in an out-of-range value.
+ >>> Convert Date & Time to datetime data type <<<
+  >> date: range 0001-01-01 through 9999-12-31
+  >> datetime: Date range - January 1, 1753, through December 31, 9999
+  >>           Time range - 00:00:00 through 23:59:59.997
+  >> Unable to UNION ALL columns date & time to datetime data type: The conversion of a date data type to a datetime data type resulted in an out-of-range value.
 ```
 ---
 ```
-2022-03-23 21:44:51.590  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                : >>> Convert Date & Time to datetime2 data type (bigger values) <<<
-2022-03-23 21:44:51.590  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                :  >> promotes date to hour 00:00:00
-2022-03-23 21:44:51.590  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                :  >> promotes time to year 1900-01-01
+ >>> Convert Date & Time to datetime2 data type (bigger values) <<<
+  >> promotes date to hour 00:00:00
+  >> promotes time to year 1900-01-01
 0.	{d1=7977-09-08 16:00:20.0, d2=7977-09-08 16:00:20.0}
 1.	{d1=null, d2=null}
 2.	{d1=9708-05-09 10:39:05.0, d2=9708-05-09 10:39:05.0}
@@ -96,30 +96,30 @@ In this repository you can find sample use-cases that shows how MSSQL converts d
 ```
 ---
 ```
-2022-03-23 21:44:51.600  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                : >>> Convert Date to datetime data type <<<
-2022-03-23 21:44:51.600  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                :  >> date: range 0001-01-01 through 9999-12-31
-2022-03-23 21:44:51.600  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                :  >> datetime: Date range - January 1, 1753, through December 31, 9999
-2022-03-23 21:44:51.601  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                :  >>           Time range - 00:00:00 through 23:59:59.997
-2022-03-23 21:44:51.610 ERROR 5660 --- [           main] c.e.d.MyCommandLineRunner                :  >> Unable to UNION ALL columns date & datetime with each other: The conversion of a date data type to a datetime data type resulted in an out-of-range value.
+ >>> Convert Date to datetime data type <<<
+  >> date: range 0001-01-01 through 9999-12-31
+  >> datetime: Date range - January 1, 1753, through December 31, 9999
+  >>           Time range - 00:00:00 through 23:59:59.997
+  >> Unable to UNION ALL columns date & datetime with each other: The conversion of a date data type to a datetime data type resulted in an out-of-range value.
 ```
 ---
 ```
-2022-03-23 21:44:51.610  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                : >>> Convert numbers to datetime2 <<<
-2022-03-23 21:44:51.616 ERROR 5660 --- [           main] c.e.d.MyCommandLineRunner                : Unable to UNION ALL column c_float with date-time: Operand type clash: float is incompatible with datetime2
-2022-03-23 21:44:51.624 ERROR 5660 --- [           main] c.e.d.MyCommandLineRunner                : Unable to UNION ALL column c_real with date-time: Operand type clash: real is incompatible with datetime2
-2022-03-23 21:44:51.632 ERROR 5660 --- [           main] c.e.d.MyCommandLineRunner                : Unable to UNION ALL column c_decimal with date-time: Operand type clash: decimal is incompatible with datetime2
-2022-03-23 21:44:51.639 ERROR 5660 --- [           main] c.e.d.MyCommandLineRunner                : Unable to UNION ALL column c_money with date-time: Operand type clash: money is incompatible with datetime2
-2022-03-23 21:44:51.647 ERROR 5660 --- [           main] c.e.d.MyCommandLineRunner                : Unable to UNION ALL column c_smallmoney with date-time: Operand type clash: smallmoney is incompatible with datetime2
-2022-03-23 21:44:51.657 ERROR 5660 --- [           main] c.e.d.MyCommandLineRunner                : Unable to UNION ALL column c_bigint with date-time: Operand type clash: bigint is incompatible with datetime2
-2022-03-23 21:44:51.668 ERROR 5660 --- [           main] c.e.d.MyCommandLineRunner                : Unable to UNION ALL column c_int with date-time: Operand type clash: int is incompatible with datetime2
-2022-03-23 21:44:51.681 ERROR 5660 --- [           main] c.e.d.MyCommandLineRunner                : Unable to UNION ALL column c_smallint with date-time: Operand type clash: smallint is incompatible with datetime2
-2022-03-23 21:44:51.694 ERROR 5660 --- [           main] c.e.d.MyCommandLineRunner                : Unable to UNION ALL column c_tinyint with date-time: Operand type clash: tinyint is incompatible with datetime2
-2022-03-23 21:44:51.706 ERROR 5660 --- [           main] c.e.d.MyCommandLineRunner                : Unable to UNION ALL column c_bit with date-time: Operand type clash: bit is incompatible with datetime2
+ >>> Convert numbers to datetime2 <<<
+ Unable to UNION ALL column c_float with date-time: Operand type clash: float is incompatible with datetime2
+ Unable to UNION ALL column c_real with date-time: Operand type clash: real is incompatible with datetime2
+ Unable to UNION ALL column c_decimal with date-time: Operand type clash: decimal is incompatible with datetime2
+ Unable to UNION ALL column c_money with date-time: Operand type clash: money is incompatible with datetime2
+ Unable to UNION ALL column c_smallmoney with date-time: Operand type clash: smallmoney is incompatible with datetime2
+ Unable to UNION ALL column c_bigint with date-time: Operand type clash: bigint is incompatible with datetime2
+ Unable to UNION ALL column c_int with date-time: Operand type clash: int is incompatible with datetime2
+ Unable to UNION ALL column c_smallint with date-time: Operand type clash: smallint is incompatible with datetime2
+ Unable to UNION ALL column c_tinyint with date-time: Operand type clash: tinyint is incompatible with datetime2
+ Unable to UNION ALL column c_bit with date-time: Operand type clash: bit is incompatible with datetime2
 ```
 ---
 ```
-2022-03-23 21:44:51.707  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                : >>> Convert numbers to float <<<
-2022-03-23 21:44:51.707  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                :  >> promotes to float 0.0, 3.14, 1.0
+ >>> Convert numbers to float <<<
+  >> promotes to float 0.0, 3.14, 1.0
 0.	{d1=null, d2=null, d3=null, d4=null, d5=null, d6=null, d7=null, d8=null, d9=null}
 1.	{d1=null, d2=null, d3=null, d4=null, d5=null, d6=null, d7=null, d8=null, d9=null}
 2.	{d1=60.108238220214844, d2=60.108238220214844, d3=60.108238220214844, d4=60.108238220214844, d5=60.108238220214844, d6=60.108238220214844, d7=60.108238220214844, d8=60.108238220214844, d9=60.108238220214844}
@@ -143,8 +143,8 @@ In this repository you can find sample use-cases that shows how MSSQL converts d
 ```
 ---
 ```
-2022-03-23 21:44:51.724  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                : >>> Convert numbers to int <<<
-2022-03-23 21:44:51.724  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                :  >> promotes to float 0, 3, 1
+ >>> Convert numbers to int <<<
+  >> promotes to float 0, 3, 1
 0.	{d5=null, d6=null, d7=null, d8=null, d9=null}
 1.	{d5=-4758063336754399447, d6=-4758063336754399447, d7=-4758063336754399447, d8=-4758063336754399447, d9=-4758063336754399447}
 2.	{d5=8361874209175057792, d6=8361874209175057792, d7=8361874209175057792, d8=8361874209175057792, d9=8361874209175057792}
@@ -168,8 +168,8 @@ In this repository you can find sample use-cases that shows how MSSQL converts d
 ```
 ---
 ```
-2022-03-23 21:44:51.735  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                : >>> Convert strings <<<
-2022-03-23 21:44:51.736  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                :  >> promotes to ntext
+ >>> Convert strings <<<
+  >> promotes to ntext
 0.	{d1=MQ_ybNZ(PR, d2=MQ_ybNZ(PR, d3=MQ_ybNZ(PR, d4=MQ_ybNZ(PR, d5=MQ_ybNZ(PR}
 1.	{d1=.K]?P]Wd ;.c$b7cfwlkMcj", d2=.K]?P]Wd ;.c$b7cfwlkMcj", d3=.K]?P]Wd ;.c$b7cfwlkMcj", d4=.K]?P]Wd ;.c$b7cfwlkMcj", d5=.K]?P]Wd ;.c$b7cfwlkMcj"}
 2.	{d1=null, d2=null, d3=null, d4=null, d5=null}
@@ -193,8 +193,8 @@ In this repository you can find sample use-cases that shows how MSSQL converts d
 ```
 ---
 ```
-2022-03-23 21:44:51.748  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                : >>> Convert binary <<<
-2022-03-23 21:44:51.748  INFO 5660 --- [           main] c.e.d.MyCommandLineRunner                :  >> promotes to byte[]/varbinary
+ >>> Convert binary <<<
+  >> promotes to byte[]/varbinary
 0.	{d1=[B@44536de4, d2=[B@5fcfde70}
 1.	{d1=[B@4d95a72e, d2=[B@28da7d11}
 2.	{d1=null, d2=null}
